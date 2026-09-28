@@ -1,0 +1,37 @@
+{
+  "name": "playwright-bdd-framework",
+  "version": "1.0.0",
+  "description": "BDD test automation framework for SauceDemo using Playwright, TypeScript and Cucumber",
+  "main": "test-runner/runner.ts",
+  "scripts": {
+    "clean": "rimraf reports screenshots && mkdirp reports screenshots",
+    "install:browsers": "playwright install --with-deps chromium",
+
+    "test:bdd": "npm run clean && cucumber-js",
+    "test:bdd:html": "npm run clean && cucumber-js --format html:reports/cucumber-report.html",
+    "test:bdd:headed": "npm run clean && cross-env HEADLESS=false cucumber-js",
+
+    "test:bdd:runner": "npm run clean && ts-node test-runner/runner.ts",
+
+    "test:bdd:smoke": "npm run clean && cucumber-js --tags \"@smoke\"",
+    "test:bdd:regression": "npm run clean && cucumber-js --tags \"@regression\"",
+
+    "test:bdd:qa": "npm run clean && cross-env TEST_ENV=qa cucumber-js",
+    "test:bdd:uat": "npm run clean && cross-env TEST_ENV=uat cucumber-js"
+  },
+  "keywords": ["playwright", "cucumber", "bdd", "typescript", "saucedemo"],
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@cucumber/html-formatter": "^21.4.0",
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "mkdirp": "^3.0.1",
+    "playwright": "^1.47.0",
+    "rimraf": "^5.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
