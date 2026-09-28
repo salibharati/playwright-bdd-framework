@@ -35,6 +35,7 @@ const config = {
   requireModule: ['ts-node/register/transpile-only'],
   format: [
     'progress-bar',
+    'allure-cucumberjs/reporter',
     'html:reports/cucumber-report.html',
     'json:reports/cucumber-report.json',
   ],

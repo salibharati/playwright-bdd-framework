@@ -28,6 +28,11 @@ export default defineConfig({
   // No `testDir` pointing at .feature files — Playwright Test does not
   // understand Gherkin. This config is kept minimal/reference-only.
   timeout: config.timeout,
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['allure-playwright', { outputFolder: 'allure-results', suiteTitle: false }],
+  ],
   use: {
     baseURL: config.baseUrl,
     headless: config.headless,
