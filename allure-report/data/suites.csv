@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"As a user of the SauceDemo web application
-  I want to log in with my credentials
-  So that I can access the products inventory page","5749","Login with invalid credentials","","2026-09-28","passed","2026-09-28","","","",""
-"As a user of the SauceDemo web application
-  I want to log in with my credentials
-  So that I can access the products inventory page","5725","Successful login with valid credentials","","2026-09-28","passed","2026-09-28","","","",""

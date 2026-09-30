@@ -6,14 +6,14 @@
   "scripts": {
     "clean": "rimraf reports screenshots allure-results allure-report && mkdirp reports screenshots",
     "install:browsers": "playwright install --with-deps chromium",
-    "test:bdd": "npm run clean && cucumber-js",
+    "test:bdd": "npm run clean && cucumber-js --config cucumber.cjs --format summary",
     "test:bdd:html": "npm run clean && cucumber-js --format html:reports/cucumber-report.html",
     "test:bdd:headed": "npm run clean && cross-env HEADLESS=false cucumber-js",
     "test:bdd:runner": "npm run clean && ts-node test-runner/runner.ts",
-    "test:bdd:allure": "npm run clean && cucumber-js && allure generate allure-results -o allure-report --clean",
+    "test:bdd:allure": "npm run clean && cucumber-js --config cucumber.cjs --format summary && allure generate allure-results -o allure-report --clean",
     "test:bdd:allure:open": "npm run test:bdd:allure && allure open allure-report",
-    "test:bdd:smoke": "npm run clean && cucumber-js --tags \"@smoke\"",
-    "test:bdd:regression": "npm run clean && cucumber-js --tags \"@regression\"",
+    "test:bdd:smoke": "npm run clean && cucumber-js --config cucumber.cjs --tags \"@smoke\" --format summary",
+    "test:bdd:regression": "npm run clean && cucumber-js --config cucumber.cjs --tags \"@regression\" --format summary",
     "test:bdd:qa": "npm run clean && cross-env TEST_ENV=qa cucumber-js",
     "test:bdd:uat": "npm run clean && cross-env TEST_ENV=uat cucumber-js"
   },
@@ -26,7 +26,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@cucumber/cucumber": "^10.9.0",
+    "@cucumber/cucumber": "^12.9.0",
     "@cucumber/html-formatter": "^21.4.0",
     "@playwright/test": "^1.47.0",
     "@types/node": "^20.14.0",
